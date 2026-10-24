@@ -1,0 +1,5 @@
+com\fixflow\ai\TicketStatusTransitionTest.class
+com\fixflow\ai\AiFailureTest.class
+com\fixflow\ai\KnowledgeRetrievalTest.class
+com\fixflow\ai\TicketAuthorizationTest.class
+com\fixflow\ai\TicketServiceTest.class

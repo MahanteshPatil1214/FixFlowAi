@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: fixflow-ai
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/fixflow}
+    username: ${SPRING_DATASOURCE_USERNAME:fixflow}
+    password: ${SPRING_DATASOURCE_PASSWORD:fixflow}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+  h2:
+    console:
+      enabled: true
+
+server:
+  port: ${SERVER_PORT:8080}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+
+groq:
+  api:
+    key: ${GROQ_API_KEY:}
+    url: https://api.groq.com/openai/v1/chat/completions
+  model: ${GROQ_MODEL:openai/gpt-oss-20b}
+
+logging:
+  level:
+    com.fixflow.ai: INFO
