@@ -1,8 +1,9 @@
-FROM node:20-alpine AS build
+FROM node:20-slim AS build
 WORKDIR /app
-COPY package*.json ./
-RUN npm install
+COPY package*.json .npmrc ./
+RUN npm ci --include=optional || npm install --include=optional
 COPY . .
+RUN rm -rf node_modules/.cache
 RUN npm run build
 
 FROM nginx:alpine
